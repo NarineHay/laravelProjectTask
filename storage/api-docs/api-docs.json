@@ -1,0 +1,192 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Creating a REST API application",
+        "description": "Test task: Creating a REST API application",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/organizations/activity/{activityId}": {
+            "get": {
+                "tags": [
+                    "Organizations"
+                ],
+                "summary": "Get organizations by activity",
+                "description": "Returns a list of organizations in the specified activity.",
+                "operationId": "2388b904a650c9072bd57d31db9f72b5",
+                "parameters": [
+                    {
+                        "name": "activityId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of organizations"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/organizations/building/{buildingId}": {
+            "get": {
+                "tags": [
+                    "Organizations"
+                ],
+                "summary": "Get organizations by building",
+                "description": "Returns a list of organizations in the specified building.",
+                "operationId": "bbe94a2484747fe77b7fb6cf047a533e",
+                "parameters": [
+                    {
+                        "name": "buildingId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of organizations"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/organizations/location": {
+            "get": {
+                "tags": [
+                    "Organizations"
+                ],
+                "summary": "Get a list of organizations within a rectangular area",
+                "description": "Returns a list of organizations located within a specified rectangular zone defined by center and size.",
+                "operationId": "ae1fff41391e05c885069bf608ef0e91",
+                "parameters": [
+                    {
+                        "name": "latitude",
+                        "in": "query",
+                        "description": "Area center latitude",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float",
+                            "example": 55.75
+                        }
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "query",
+                        "description": "Longitude of the area center",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float",
+                            "example": 37.61
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of organizations"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/organizations/{id}": {
+            "get": {
+                "tags": [
+                    "Organizations"
+                ],
+                "summary": "Get organizations by id",
+                "description": "Returns a organization in the specified id.",
+                "operationId": "9393346f32c0724153ca907e6aba49a0",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show organization"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/organizations/search": {
+            "get": {
+                "tags": [
+                    "Organizations"
+                ],
+                "summary": "Search organizations by name",
+                "description": "Returns a list of organizations whose name contains the specified query.",
+                "operationId": "7751c3e713c78809c6fcaea454180d1e",
+                "parameters": [
+                    {
+                        "name": "query",
+                        "in": "query",
+                        "description": "Part of the organization name to search",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "Anderson"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of found organizations"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Organizations",
+            "description": "Organizations"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "bearer": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "Authorization",
+                "description": "Enter Bearer token"
+            }
+        }
+    }
+}
